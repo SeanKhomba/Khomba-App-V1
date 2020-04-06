@@ -8,7 +8,7 @@ export function addTaxiInfo(taxi, addComplete) {
     firebase.firestore()
       .collection('Taxi')
       .add({
-          createdAt = firebase.firestore.FieldValue.serverTimestamp(),
+          createdAt : firebase.firestore.FieldValue.serverTimestamp(),
           Route: taxi.Route,
           NumberPlate: taxi.NumberPlate,
           Complaint: taxi.Complaint,
@@ -26,7 +26,7 @@ export function addTaxiRankInfo(taxiRank, addComplete) {
     firebase.firestore()
       .collection('Taxi Rank')
       .add({
-          createdAt = firebase.firestore.FieldValue.serverTimestamp(),
+          createdAt : firebase.firestore.FieldValue.serverTimestamp(),
           Destination: taxiRank.Destination,
           Complaint: taxiRank.Complaint,
           MoreDetails:taxiRank.MoreDetails,
@@ -42,7 +42,7 @@ export function addTaxiDriverInfo(taxiDriver, addComplete) {
     firebase.firestore()
       .collection('Taxi Driver')
       .add({
-          createdAt = firebase.firestore.FieldValue.serverTimestamp(),
+          createdAt : firebase.firestore.FieldValue.serverTimestamp(),
           Route: taxiDriver.Route,
           NumberPlate: taxiDriver.NumberPlate,
           CommuteDate: taxiDriver.CommuteDate,

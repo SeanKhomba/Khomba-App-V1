@@ -10,7 +10,7 @@ import {
 import { CheckBox } from 'react-native-elements'
 import { Block, Button as GaButton, theme, Text} from "galio-framework";
 import ImageOverlay from "react-native-image-overlay";
-import {addTaxiInfo} from './Services/LetsTalkApi';
+import {addTaxiInfo} from '../Services/LetsTalkApi';
 const { width, height } = Dimensions.get("screen");
 
 class TaxiRank extends React.Component {
@@ -18,17 +18,17 @@ class TaxiRank extends React.Component {
     super();
     this.state ={ 
 
-      Destination="",
+      Destination:"",
 
-      Complaint =[
-      Harassment= false,
-      Safety= false,
-      LostItem= false,
-      Compliments= false,
-      Other=false,
+      Complaint :[
+        Harassment= false,
+        Safety= false,
+        LostItem= false,
+        Compliments= false,
+        Other=false,
       ], 
 
-      Moredetails='',
+      Moredetails:'',
 
     }
   }
