@@ -15,28 +15,29 @@ import * as firebase from 'firebase';
 const { width, height } = Dimensions.get("window");
 
 class SignUp extends React.Component {
+  
 
   constructor(props) {
     super(props);
     this.state = { 
-        fullName: "",
+        // fullName: "",
         email: "",
-        phone: "",
+        // phone: "",
         password: "",
         passwordConfirm:"",
     };
 } 
 
-onSignupPress = () => {
+onSignUpPress = () => {
   if (this.state.password !== this.state.passwordConfirm) {
       Alert.alert("Passwords do not match");
       return;
   }
 
-  firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+  firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => { }, (error) => { Alert.alert(error.message); });
-  firebase.auth().signInWithPhoneNumber(this.state.phone, this.state.phone)
-      .then(() => { }, (error) => { Alert.alert(error.message); });
+  // firebase.auth().signInWithPhoneNumber(this.state.phone, this.state.phone)
+  //     .then(() => { }, (error) => { Alert.alert(error.message); });
 }
 
   render() {
@@ -87,7 +88,7 @@ onSignupPress = () => {
                         <Text size={20} style={{margin:20,}}>Sign Up to Khomba</Text>
                       </Block>
     
-                      <Block width={width * 0.8} style={{marginBottom:15}}>
+                      {/* <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
                           style={styles.inputSignUp}
                           borderless
@@ -98,7 +99,7 @@ onSignupPress = () => {
                           onChangeText={(text) => { this.setState({fullName: text}) }}
                           required
                         />
-                      </Block>
+                      </Block> */}
 
                       <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
@@ -114,7 +115,7 @@ onSignupPress = () => {
                         />
                       </Block>
 
-                      <Block width={width * 0.8} style={{marginBottom:15}}>
+                      {/* <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
                           style={styles.inputSignUp}
                           borderless
@@ -124,7 +125,7 @@ onSignupPress = () => {
                           onChangeText={(text) => { this.setState({phone: text}) }}
                           required
                         />
-                      </Block>
+                      </Block> */}
 
                       <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
@@ -162,7 +163,7 @@ onSignupPress = () => {
                       </Block>
 
                       <Block width={width * 0.9} flexDirection="row"  style={styles.signInAccount} >
-                        <Text color='#959DAD' onPress={this._onPressButton}   >
+                        <Text color='#959DAD' onPress={() => navigation.navigate("Login")}   >
                           Already have an account?
                         </Text>
                       </Block>

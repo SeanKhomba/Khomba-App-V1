@@ -20,7 +20,8 @@ class SignUp extends React.Component {
     super(props);
     this.state = { 
         fullName:"",
-        phone:"",
+        email:"",
+        // phone:"",
         password: "",
     };
 }
@@ -29,8 +30,8 @@ class SignUp extends React.Component {
 onLoginPress = () => {
   firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => { }, (error) => { Alert.alert(error.message); });
-  firebase.auth().signInWithPhoneNumber(this.state.phone, this.state.phone)
-      .then(() => { }, (error) => { Alert.alert(error.message); });
+  // firebase.auth().signInWithPhoneNumber(this.state.phone)
+  //     .then(() => { }, (error) => { Alert.alert(error.message); });
 }
 
 
@@ -96,10 +97,11 @@ onLoginPress = () => {
                         <TextInput
                           style={styles.inputLogin}
                           borderless
-                          placeholder="Phone"
-                          value={this.state.phone}
-                          keyboardType="number-pad"
-                          onChangeText={(text) => { this.setState({phone: text}) }}
+                          placeholder="Email"
+                          value={this.state.email}
+                          keyboardType='email-address'
+                          autoCapitalize="none"
+                          onChangeText={(text) => { this.setState({email: text}) }}
                           required
                         />
                       </Block>

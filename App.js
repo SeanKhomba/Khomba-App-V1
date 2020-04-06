@@ -72,7 +72,7 @@ export default class App extends React.Component {
         <GalioProvider theme={argonTheme}>
           <Block flex>
             {/* <Screens /> */}
-            {(this.state.isAuthenticated) ? <Menu/> : <Screens />}
+            {(this.state.isAuthenticated) ? <Screens />:<Menu/>  }
           </Block>
         </GalioProvider>
       );
