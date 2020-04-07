@@ -52,181 +52,178 @@ onTaxiInfoAdded = (Taxi) => {
       overlayAlpha={0.2} 
       height={"100%"}
       >
-
-    
-            <Block style={styles.LetsTalkContainer}>
-
-                <Block flex center>
-                  <KeyboardAvoidingView
-                    style={{ flex: 1 }}
-                    behavior="padding"
-                    enabled
-                  >
-                      <Block  middle style={{marginTop:20}}>
-                          <Image 
-                          style={{width: 80, height: 80,}}
-                          source={require('../images/khomba-white.png')}
-                          />
-                      </Block>
-                      <Block width={width * 0.8} middle>
-                        <Text size={20} style={{color:"white",marginBottom:10,paddingLeft:35}}>" Taxi "</Text>
-                      </Block>
-                      
-                      <Block width={width * 0.9} middle>
-                        <Text size={12} style={{color:"white",margin:20,}}>" Have feedback or a want to report your experience? "</Text>
-                      </Block>
-                      <Block flex center style={styles.InputContainer}>
-                            <Block style={{marginBottom:15}}>
-                              <TextInput
-                              style={styles.inputLetsTalk}
-                                borderless
-                                placeholder="Taxi Route"
-                                placeholderTextColor="white"
-                                value={this.state.Route}
-                                onChangeText={(text)=> this.setState(prevState =>({Route: prevState.Route = text}))}
-                              />
-                            </Block>
-
-                            <Block  style={{marginBottom:15}}>
-                              <TextInput
-                                style={styles.inputLetsTalk}
-                                borderless
-                                placeholder="Taxi Number Plate"
-                                placeholderTextColor="white"
-                                value={this.state.NumberPlate}
-                                onChangeText={(text)=> this.setState(prevState =>({TaxiNumberPlate: prevState.NumberPlate = text}))}
-                              />
-                            </Block>
-                            <Block style={styles.ButtonContainer}>
-                                    
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Over-Charged'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.OverCharge}
-                                      onPress={() => this.setState({OverCharge: !this.state.Complaint.OverCharge})}
-                                    />
-                                    </Block>
-
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Bad Driving'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.BadDriving}
-                                      onPress={() => this.setState({BadDriving: !this.state.Complaint.BadDriving})}
-                                      />
-                                    </Block>
-
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Lost Item'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.LostItem}
-                                      onPress={() => this.setState({LostItem: !this.state.Complaint.LostItem})}
-                                      />
-                                    </Block>
-
-                                </Block>
-
-                                <Block style={styles.ButtonContainer}>
-                                    
-
-
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Taxi Condition'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.TaxiCondition}
-                                      onPress={() => this.setState({TaxiCondition: !this.state.Complaint.TaxiCondition})}
-                                      />
-                                    </Block>
-
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Compliments'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.Compliments}
-                                      onPress={() => this.setState({Compliments: !this.state.Complaint.Compliments})}
-                                        
-                                      />
-                                    </Block>
-
-                                    <Block style={styles.IdividualCheckButtonContainer}>
-                                    <CheckBox
-                                      center
-                                      title='Other'
-                                      checkedIcon='dot-circle-o'
-                                      uncheckedIcon='circle-o'
-                                      size={13}
-                                      textStyle={styles.CheckBoxContent}
-                                      containerStyle={styles.CheckBoxContainer}
-                                      checked={this.state.Complaint.Other}
-                                      onPress={() => this.setState({Other: !this.state.Complaint.Other})}
-                                      
-                                      />
-                                    </Block>
-
-                                </Block>
-
-
-                            <Block style={{marginBottom:15,}}>
-                              <TextInput
-                                style={styles.inputLetsTalkMoreDetails}
-                                borderless
-                                placeholder="More Details"
-                                placeholderTextColor="white"
-                                multiline={true} 
-                                numberOfLines={30} 
-                                maxLength={1000}
-                                value={this.state.MoreDetails}
-                                onChangeText={(text)=> this.setState(prevState =>({MoreDetails: prevState.MoreDetails = text}))}
-                              />
-                            </Block>
-
-                            <Block  flexDirection="row"  style={styles.inputLetsTalkBotton} >
-                            <Button                                   
-                              title="Submit"
-                              color="white"
-                              onPress={() => addTaxiInfo({
-                                Route: this.state.TaxiRoute,
-                                NumberPlate: this.state.NumberPlate,
-                                Complaint: this.state.Complaint,
-                                MoreDetails: this.state.MoreDetails,
-                              },
-                               this.onTaxiInfoAdded
-                              )} 
+          <Block style={styles.LetsTalkContainer}>
+            <Block flex center>
+                <KeyboardAvoidingView
+                  style={{ flex: 1 }}
+                  behavior="padding"
+                  enabled
+                >
+                    <Block  middle style={{marginTop:20}}>
+                        <Image 
+                        style={{width: 80, height: 80,}}
+                        source={require('../images/khomba-white.png')}
+                        />
+                    </Block>
+                    <Block width={width * 0.8} middle>
+                      <Text size={20} style={{color:"white",marginBottom:10,paddingLeft:35}}>" Taxi "</Text>
+                    </Block>
+                    
+                    <Block width={width * 0.9} middle>
+                      <Text size={12} style={{color:"white",margin:20,}}>" Have feedback or a want to report your experience? "</Text>
+                    </Block>
+                    <Block flex center style={styles.InputContainer}>
+                          <Block style={{marginBottom:15}}>
+                            <TextInput
+                            style={styles.inputLetsTalk}
+                              borderless
+                              placeholder="Taxi Route"
+                              placeholderTextColor="white"
+                              value={this.state.Route}
+                              onChangeText={(text)=> this.setState(prevState =>({Route: prevState.Route = text}))}
                             />
-                            </Block>
-                      </Block>
-                      </KeyboardAvoidingView>
-                </Block>
-            </Block>
-        </ImageOverlay>
+                          </Block>
+
+                          <Block  style={{marginBottom:15}}>
+                            <TextInput
+                              style={styles.inputLetsTalk}
+                              borderless
+                              placeholder="Taxi Number Plate"
+                              placeholderTextColor="white"
+                              value={this.state.NumberPlate}
+                              onChangeText={(text)=> this.setState(prevState =>({TaxiNumberPlate: prevState.NumberPlate = text}))}
+                            />
+                          </Block>
+                          <Block style={styles.ButtonContainer}>
+                                  
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Over-Charged'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.OverCharge}
+                                    onPress={() => this.setState({OverCharge: !this.state.Complaint.OverCharge})}
+                                  />
+                                  </Block>
+
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Bad Driving'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.BadDriving}
+                                    onPress={() => this.setState({BadDriving: !this.state.Complaint.BadDriving})}
+                                    />
+                                  </Block>
+
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Lost Item'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.LostItem}
+                                    onPress={() => this.setState({LostItem: !this.state.Complaint.LostItem})}
+                                    />
+                                  </Block>
+
+                              </Block>
+
+                              <Block style={styles.ButtonContainer}>
+                                  
+
+
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Taxi Condition'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.TaxiCondition}
+                                    onPress={() => this.setState({TaxiCondition: !this.state.Complaint.TaxiCondition})}
+                                    />
+                                  </Block>
+
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Compliments'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.Compliments}
+                                    onPress={() => this.setState({Compliments: !this.state.Complaint.Compliments})}
+                                      
+                                    />
+                                  </Block>
+
+                                  <Block style={styles.IdividualCheckButtonContainer}>
+                                  <CheckBox
+                                    center
+                                    title='Other'
+                                    checkedIcon='dot-circle-o'
+                                    uncheckedIcon='circle-o'
+                                    size={13}
+                                    textStyle={styles.CheckBoxContent}
+                                    containerStyle={styles.CheckBoxContainer}
+                                    checked={this.state.Complaint.Other}
+                                    onPress={() => this.setState({Other: !this.state.Complaint.Other})}
+                                    
+                                    />
+                                  </Block>
+
+                              </Block>
+
+
+                          <Block style={{marginBottom:15,}}>
+                            <TextInput
+                              style={styles.inputLetsTalkMoreDetails}
+                              borderless
+                              placeholder="More Details"
+                              placeholderTextColor="white"
+                              multiline={true} 
+                              numberOfLines={30} 
+                              maxLength={1000}
+                              value={this.state.MoreDetails}
+                              onChangeText={(text)=> this.setState(prevState =>({MoreDetails: prevState.MoreDetails = text}))}
+                            />
+                          </Block>
+
+                          <Block  flexDirection="row"  style={styles.inputLetsTalkBotton} >
+                          <Button                                   
+                            title="Submit"
+                            color="white"
+                            onPress={() => addTaxiInfo({
+                              Route: this.state.TaxiRoute,
+                              NumberPlate: this.state.NumberPlate,
+                              Complaint: this.state.Complaint,
+                              MoreDetails: this.state.MoreDetails,
+                            },
+                              this.onTaxiInfoAdded
+                            )} 
+                          />
+                          </Block>
+                    </Block>
+                    </KeyboardAvoidingView>
+              </Block>
+          </Block>
+      </ImageOverlay>
     );
   }
 }
