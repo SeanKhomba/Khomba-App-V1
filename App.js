@@ -1,13 +1,26 @@
 import React from 'react';
-import { Image } from 'react-native';
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import { Block, GalioProvider } from 'galio-framework';
+import {
+  Image
+} from 'react-native';
+import {
+  AppLoading
+} from 'expo';
+import {
+  Asset
+} from 'expo-asset';
+import {
+  Block,
+  GalioProvider
+} from 'galio-framework';
 import Menu from './navigation/Menu'
 import * as firebase from 'firebase';
 import ApiKeys from './Services/ApiKeys';
 import Screens from './navigation/Screens';
-import { Images, articles, argonTheme } from './constants';
+import {
+  Images,
+  articles,
+  argonTheme
+} from './constants';
 
 // cache app images
 const assetImages = [
@@ -47,33 +60,43 @@ export default class App extends React.Component {
     };
 
     // Initialize firebase...
-    if (!firebase.apps.length) { firebase.initializeApp(ApiKeys.FirebaseConfig); }
+    if (!firebase.apps.length) {
+      firebase.initializeApp(ApiKeys.FirebaseConfig);
+    }
     firebase.auth().onAuthStateChanged(this.onAuthStateChanged);
   }
 
   onAuthStateChanged = (user) => {
-    this.setState({isAuthenticationReady: true});
-    this.setState({isAuthenticated: !!user});
+    this.setState({
+      isAuthenticationReady: true
+    });
+    this.setState({
+      isAuthenticated: !!user
+    });
   }
 
   render() {
 
 
-    if((!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
+    if ((!this.state.isLoadingComplete || !this.state.isAuthenticationReady) && !this.props.skipLoadingScreen) {
+      return ( <
+        AppLoading startAsync = {
+          this._loadResourcesAsync
+        }
+        onError = {
+          this._handleLoadingError
+        }
+        onFinish = {
+          this._handleFinishLoading
+        }
         />
       );
     } else {
-      return (
-        <GalioProvider theme={argonTheme}>
-          <Block flex>
-            {/* <Screens /> */}
-            {(this.state.isAuthenticated) ? <Screens />:<Menu/>  }
-          </Block>
+      return ( 
+        <GalioProvider theme = {argonTheme} >
+          <Block flex >
+            <Screens / >
+          </Block> 
         </GalioProvider>
       );
     }
@@ -92,7 +115,9 @@ export default class App extends React.Component {
   };
 
   _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
+    this.setState({
+      isLoadingComplete: true
+    });
   };
 
 }

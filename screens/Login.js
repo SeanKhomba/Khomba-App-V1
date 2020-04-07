@@ -19,7 +19,7 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-        fullName:"",
+        // fullName:"",
         email:"",
         // phone:"",
         password: "",
@@ -29,7 +29,9 @@ class SignUp extends React.Component {
 
 onLoginPress = () => {
   firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(() => { }, (error) => { Alert.alert(error.message); });
+      // .then(() => { }, (error) => { Alert.alert(error.message); });
+      .then(() => this.props.navigation.navigate('LetsTalk'))
+      .catch(error => this.setState({ errorMessage: error.message }));
   // firebase.auth().signInWithPhoneNumber(this.state.phone)
   //     .then(() => { }, (error) => { Alert.alert(error.message); });
 }
@@ -80,7 +82,7 @@ onLoginPress = () => {
                         <Text size={20} style={{margin:20,}}>Login to Khomba</Text>
                       </Block>
     
-                      <Block width={width * 0.8} style={{marginBottom:15}}>
+                      {/* <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
                           style={styles.inputLogin}
                           borderless
@@ -91,7 +93,7 @@ onLoginPress = () => {
                           onChangeText={(text) => { this.setState({fullName: text}) }}
                           required
                         />
-                      </Block>
+                      </Block> */}
                       
                       <Block width={width * 0.8} style={{marginBottom:15}}>
                         <TextInput
